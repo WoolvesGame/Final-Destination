@@ -5,7 +5,7 @@
 
 /datum/wires/apc
 	holder_type = /obj/machinery/power/apc
-	wire_count = 4	
+	wire_count = 4
 	descriptions = list(
 		new /datum/wire_description(APC_WIRE_IDSCAN, "This wire is connected to the ID scanning panel.", SKILL_EXPERT),
 		new /datum/wire_description(APC_WIRE_MAIN_POWER1, "This wire seems to be carrying a heavy current."),
@@ -76,3 +76,18 @@
 			else
 				if (A.aidisabled == 1)
 					A.aidisabled = 0
+
+
+/datum/wires/apc/SolveWireFunction(var/function)
+	var/sf = ""
+	switch(function)
+		if(APC_WIRE_IDSCAN)
+			sf = "Port A"
+		if(APC_WIRE_MAIN_POWER1)
+			sf = "Port B"
+		if(APC_WIRE_MAIN_POWER2)
+			sf = "Port C"
+		if(APC_WIRE_AI_CONTROL)
+			sf = "Port D"
+
+	return sf

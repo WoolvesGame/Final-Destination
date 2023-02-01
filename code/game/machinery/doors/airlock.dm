@@ -873,6 +873,8 @@ About the new airlock wires panel:
 			if(src.shock(user, 100))
 				return TRUE
 
+
+
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
 	if(operating < 0) //emagged
 		to_chat(user, "<span class='warning'>Unable to interface: Internal error.</span>")

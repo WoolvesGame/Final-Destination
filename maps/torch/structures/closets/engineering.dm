@@ -64,6 +64,7 @@
 		//proxima code end,
 		/obj/item/device/holowarrant,
 		/obj/item/storage/box/armband/engine,
+		/obj/item/device/multitool/multimeter,
 		/obj/item/storage/box/secret_project_disks,
 		/obj/item/material/knife/folding/swiss/officer,
 		/obj/item/clothing/head/hardhat/damage_control/White,

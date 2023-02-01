@@ -219,6 +219,10 @@
 
 #define RADIATION_THRESHOLD_CUTOFF 0.1	// Radiation will not affect a tile when below this value.
 
+// Multimeter defines
+#define METER_MESURING "Пропульс" // Measuring
+#define METER_CHECKING "Прозвон" // Checking
+
 #define LEGACY_RECORD_STRUCTURE(X, Y) GLOBAL_LIST_EMPTY(##X);/datum/computer_file/data/##Y/var/list/fields[0];/datum/computer_file/data/##Y/New(){..();GLOB.##X.Add(src);}/datum/computer_file/data/##Y/Destroy(){. = ..();GLOB.##X.Remove(src);}
 
 #define SUPPLY_SECURITY_ELEVATED 1
