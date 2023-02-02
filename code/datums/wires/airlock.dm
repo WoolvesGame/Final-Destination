@@ -189,8 +189,6 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 			A.lights = !A.lights
 			A.update_icon()
 
-
-
 /datum/wires/airlock/SolveWireFunction(var/function)
 	var/sf = ""
 	switch(function)

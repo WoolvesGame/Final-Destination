@@ -172,7 +172,7 @@ var/global/all_solved_wires = list() //Solved wire associative list, eg; all_sol
 				if(istype(I, /obj/item/device/multitool/multimeter))
 					var/obj/item/device/multitool/multimeter/O = L.get_active_hand()
 					if(O.mode == METER_MESURING)
-						to_chat(L, "<span class='notice'>Çàêîðà÷èâàåì êîíòàêòû ïðîâîäà...</span>")
+						to_chat(L, "<span class='notice'>Ïîäàåì íàïð#&255;æåíèå...</span>")
 						if(do_after(L, 50))
 							var/colour = href_list["pulse"]
 							PulseColour(colour)
@@ -181,20 +181,10 @@ var/global/all_solved_wires = list() //Solved wire associative list, eg; all_sol
 							return 0
 					else
 						to_chat(L, "<span class='notice'>Ïåðåâåäèòå ìóëüòèìåòð â ðåæèì èçìåðåí&#255;.</span>")
-				else if(istype(I, /obj/item/device/multitool))
-					var/colour = href_list["pulse"]
-					if(prob(L.skill_fail_chance(SKILL_ELECTRICAL, 30, SKILL_ADEPT)))
-						RandomPulse()
-						to_chat(L, "<span class='danger'>You accidentally pulse another wire instead of the [colour] wire!</span>")
-						if(prob(L.skill_fail_chance(SKILL_ELECTRICAL, 60, SKILL_BASIC)))
-							RandomPulse() //or two
-					else
-						PulseColour(colour)
-						to_chat(usr, SPAN_NOTICE("You pulse the [colour] wire."))
-					playsound(usr.loc, "sound/effects/pop.ogg", 20)
-					if(prob(L.skill_fail_chance(SKILL_ELECTRICAL, 50, SKILL_BASIC)))
-						wires = shuffle(wires) //Leaves them in a different order for anyone else.
-						to_chat(L, "<span class='danger'>You get the wires all tangled up!</span>")
+			else if(href_list["pulse"])
+				var/colour = href_list["pulse"]
+
+				if(isMultimeter(I))
 				else
 					to_chat(L, "<span class='error'>You need a multitool!</span>")
 			else if(href_list["attach"])
